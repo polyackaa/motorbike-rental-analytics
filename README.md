@@ -32,8 +32,8 @@
 pip install -r requirements.txt
 
 # 2. Выполнить SQL-скрипты в БД:
-#    schema.sql — создать таблицы
-#    data.sql — залить тестовые данные
+schema.sql # создать таблицы
+data.sql # залить тестовые данные
 
 # 3. Запустить
 python main.py
