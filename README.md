@@ -14,7 +14,9 @@
 
 ER-диаграмма:
 
-![ER-диаграмма](images/erd.png)
+<p align="center">
+  <img src="images/erd.png" alt="ER-диаграмма">
+</p>
 
 5 таблиц:
 - **clients** — клиенты
