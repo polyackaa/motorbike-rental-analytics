@@ -44,6 +44,7 @@ python main.py
 
 ## Структура проекта
 
+```bash
 ├── main.py           # код
 ├── schema.sql        # создание таблиц
 ├── data.sql          # тестовые данные
@@ -51,6 +52,7 @@ python main.py
 └── requirements.txt  # зависимости
 └── images/
     └── erd.png       # ER-диаграмма
+```
 
 ## Автор
 
