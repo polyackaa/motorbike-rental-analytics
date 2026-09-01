@@ -15,7 +15,7 @@
 ER-диаграмма:
 
 <p align="center">
-  <img src="images/erd.png" alt="ER-диаграмма">
+  <img src="images/erd.png" alt="ER-диаграмма" width="500">
 </p>
 
 5 таблиц:
