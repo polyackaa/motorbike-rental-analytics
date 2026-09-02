@@ -41,7 +41,10 @@ pip install -r requirements.txt
 schema.sql # создать таблицы
 data.sql # залить тестовые данные
 
-# 3. Запустить код для визуализации
+# 3. Скопировать файл `.env.example` в `.env` и заполнить своими данными:
+cp .env.example .env
+
+# 4. Запустить код для визуализации
 python main.py
 ```
 

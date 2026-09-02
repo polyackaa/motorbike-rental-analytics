@@ -1,17 +1,22 @@
+import os
 import psycopg2
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+from dotenv import load_dotenv
 
-# Подключение к БД
+# загружаем переменные
+load_dotenv()
+
+# подключаемся к БД
 conn = psycopg2.connect(
-    dbname="dbstud",
-    user="bk_467575_2025",
-    password="bk_467575",
-    host="postgrepro.dc-edu.ru"
+    dbname="DB_NAME",
+    user="DB_USER",
+    password="DB_PASSWORD",
+    host="DB_HOST"
 )
 
-# Запрос 1: Топ-5 самых арендуемых моделей мототехники
+# запрос 1: топ-5 самых арендуемых моделей мототехники
 query1 = """
 SELECT m.brand, m.model, COUNT(*) AS rental_count 
 FROM motor_equipment m
@@ -29,7 +34,7 @@ plt.ylabel("Модель")
 plt.tight_layout()
 plt.show()
 
-# Запрос 2: Клиенты с просроченной страховкой
+# запрос 2: клиенты с просроченной страховкой
 query2 = """
 SELECT insurance_company, COUNT(*) AS expired_count 
 FROM clients 
@@ -43,7 +48,7 @@ plt.title("Распределение просроченных страхово�
 plt.tight_layout()
 plt.show()
 
-# Запрос 3: Средняя продолжительность проката
+# запрос 3: средняя продолжительность проката
 query3 = "SELECT (end_date - start_date) AS days FROM rentals;"
 df3 = pd.read_sql(query3, conn)
 plt.figure(figsize=(10, 6))
@@ -54,7 +59,7 @@ plt.ylabel("Количество аренд")
 plt.tight_layout()
 plt.show()
 
-# Запрос 4: Топ-10 клиентов по суммам
+# запрос 4: топ-10 клиентов по суммам
 query4 = """
 SELECT c.name, SUM(r.total_price) AS total_spent 
 FROM clients c
@@ -72,7 +77,7 @@ plt.ylabel("Клиент")
 plt.tight_layout()
 plt.show()
 
-# Запрос 5: Доступные шлемы размера L (улучшенная версия)
+# запрос 5: доступные шлемы размера L (улучшенная версия)
 query5 = """
 SELECT brand, material, daily_price 
 FROM gear 
@@ -96,5 +101,5 @@ else:
 plt.tight_layout()
 plt.show()
 
-# Закрытие соединения
+# закрываем соединение
 conn.close()
